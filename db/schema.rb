@@ -11,7 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104012108) do
+ActiveRecord::Schema.define(version: 20170104022614) do
+
+  create_table "contact_fields", force: :cascade do |t|
+    t.integer  "custom_field_id"
+    t.integer  "contact_id"
+    t.text     "value"
+    t.datetime "created_at",      null: false
+    t.datetime "updated_at",      null: false
+  end
+
+  add_index "contact_fields", ["contact_id"], name: "index_contact_fields_on_contact_id"
+  add_index "contact_fields", ["custom_field_id"], name: "index_contact_fields_on_custom_field_id"
 
   create_table "contacts", force: :cascade do |t|
     t.string   "name"
