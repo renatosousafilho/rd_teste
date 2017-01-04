@@ -46,10 +46,13 @@ group :development do
 end
 
 gem 'devise'
+gem 'simple_form'
 
 
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers', '~> 3.1'
+  gem "factory_girl_rails", "~> 4.0"
+  gem "database_cleaner"
 end

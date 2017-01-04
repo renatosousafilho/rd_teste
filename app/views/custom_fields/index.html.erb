@@ -1,0 +1,18 @@
+<h3>Campos</h3>
+
+<p><%= flash[:notice] %></p>
+
+<table>
+  <tr>
+    <th>Campo</th>
+    <th>Tipo</th>
+  </tr>
+  <% @custom_fields.each do |field| %>
+    <tr>
+      <td><%= field.name %></td>
+      <td><%= field.kind %></td>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "New field", new_custom_field_path %>
