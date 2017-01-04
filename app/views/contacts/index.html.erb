@@ -1,0 +1,25 @@
+<h3>Contacts</h3>
+
+<p><%= flash[:notice] %></p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <% @fields.each do |field|%>
+      <th><%= field.name %></th>
+    <% end %>
+  </tr>
+  <% @contacts.each do |contact| %>
+    <tr>
+      <td><%= contact.name %></td>
+      <td><%= contact.email %></td>
+      <% contact.contact_fields.each do |field| %>
+        <td><%= field.value %></td>
+
+      <% end %>
+    </tr>
+  <% end %>
+</table>
+
+<%= link_to "New contact", new_contact_path %>
