@@ -14,3 +14,26 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+    $("#kind-combobox").on("change", function(){
+        selected = $(this).val();
+        if (selected=="combobox") {
+            console.log("selecionado");
+        }
+    });
+
+
+    var i_id = 1;
+    $("#add-option").on('click', function(){
+       var new_input = $("#option-1").clone();
+       field_id = 'option-' + ++i_id;
+
+       new_input.attr("id", field_id);
+       $(".option-wrapper").append(new_input);
+       $("#"+field_id).find('label').attr('for', 'text-'+field_id);
+       $("#"+field_id).find('input').attr('id', 'text-'+field_id);
+       $("#"+field_id).find('label').text("Opção"+i_id);
+    });
+
+});

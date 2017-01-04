@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170104022614) do
+ActiveRecord::Schema.define(version: 20170104163734) do
 
   create_table "contact_fields", force: :cascade do |t|
     t.integer  "custom_field_id"
@@ -40,6 +40,7 @@ ActiveRecord::Schema.define(version: 20170104022614) do
     t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.text     "choices"
   end
 
   add_index "custom_fields", ["user_id"], name: "index_custom_fields_on_user_id"

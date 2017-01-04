@@ -1,5 +1,17 @@
 <%= simple_form_for @custom_field do |f| %>
   <%= f.input :name %>
-  <%= f.input :kind, as: :select, collection: CustomField.kinds.keys, prompt: "Selecione um tipo"  %>
+  <%= f.input :kind, as: :select, collection: CustomField.kinds.keys, prompt: "Selecione um tipo", input_html: { id: "kind-combobox" }  %>
+
+  <div class="option-wrapper">
+    <div id="option-1">
+      <label for="text-option-1">Opção 1</label>
+      <%= text_field_tag 'custom_field[choices][]', "", id: 'text-option-1' %>
+    </div>
+  </div>
+
+  <button type="button" id="add-option">Add option</button>
+  <p/>
+
   <%= f.submit 'Save' %>
 <% end %>
+

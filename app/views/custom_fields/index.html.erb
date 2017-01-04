@@ -6,11 +6,13 @@
   <tr>
     <th>Campo</th>
     <th>Tipo</th>
+    <th>Opções</th>
   </tr>
   <% @custom_fields.each do |field| %>
     <tr>
       <td><%= field.name %></td>
       <td><%= field.kind %></td>
+      <td><%= field.choices %></td>
 	  <td><%= link_to "Edit", edit_custom_field_path(field.id) %></td>
     </tr>
   <% end %>

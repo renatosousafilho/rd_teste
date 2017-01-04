@@ -11,7 +11,8 @@ class CustomFieldsController < ApplicationController
   end
 
   def create
-    @custom_field = CustomField.new(custom_field_params)
+    p field_params
+    @custom_field = CustomField.new(field_params)
     @custom_field.user = current_user
     if @custom_field.save
       flash[:notice] = "Campo cadastrado com sucesso"
@@ -39,6 +40,6 @@ class CustomFieldsController < ApplicationController
   end
 
   def field_params
-    params.require(:custom_field).permit(:user_id, :kind, :name)
+    params.require(:custom_field).permit(:user_id, :kind, :name, :choices => [])
   end
 end
