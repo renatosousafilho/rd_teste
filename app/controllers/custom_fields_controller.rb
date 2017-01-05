@@ -40,6 +40,8 @@ class CustomFieldsController < ApplicationController
   end
 
   def field_params
-    params.require(:custom_field).permit(:user_id, :kind, :name, :choices => [])
+    new_params = params.require(:custom_field).permit(:user_id, :kind, :name, :choices => [])
+    new_params[:choices] = new_params[:choices].join(",")
+    new_params
   end
 end
