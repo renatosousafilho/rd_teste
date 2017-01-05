@@ -47,6 +47,7 @@ end
 
 gem 'devise'
 gem 'simple_form'
+gem 'foundation-rails'
 
 
 group :test do

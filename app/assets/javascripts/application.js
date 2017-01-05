@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require turbolinks
 //= require_tree .
 
@@ -19,7 +20,7 @@ $(document).ready(function(){
     $("#kind-combobox").on("change", function(){
         selected = $(this).val();
         if (selected=="combobox") {
-            console.log("selecionado");
+            $("#option-wrapper").show();
         }
     });
 
@@ -30,10 +31,13 @@ $(document).ready(function(){
        field_id = 'option-' + ++i_id;
 
        new_input.attr("id", field_id);
-       $(".option-wrapper").append(new_input);
+       $(".option-container").append(new_input);
        $("#"+field_id).find('label').attr('for', 'text-'+field_id);
        $("#"+field_id).find('input').attr('id', 'text-'+field_id);
+       $("#"+field_id).find('input').val("")
        $("#"+field_id).find('label').text("Opção"+i_id);
     });
 
 });
+
+$(function(){ $(document).foundation(); });
