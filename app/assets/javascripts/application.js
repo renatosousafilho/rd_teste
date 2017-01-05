@@ -31,15 +31,24 @@ $(document).ready(function(){
 
 
     var i_id = 1;
-    $("#add-option").on('click', function(){
-       var new_input = $("#option-1").clone();
+    $(document).on('click', '.add-option', function(){
+       console.log("teste")
+       last_field_id = 'option-' + i_id;
+       last_field = "#"+last_field_id;
+       var new_input = $(last_field).clone();
+
        field_id = 'option-' + ++i_id;
+       field = "#"+field_id;
 
        new_input.attr("id", field_id);
+       removeButton = "<button type=\"button\" class=\"button alert postfix\" id=\"rm-option\">-</button>"
+
+       $(last_field).find("#option-button").html(removeButton);
+
        $(".option-container #more-options-wrapper").append(new_input);
        $("#"+field_id).find('label').attr('for', 'text-'+field_id);
        $("#"+field_id).find('input').attr('id', 'text-'+field_id);
-       $("#"+field_id).find('input').val("")
+       $("#"+field_id).find('input').val("");
        $("#"+field_id).find('label').text("Opção"+i_id);
     });
 

@@ -24,8 +24,8 @@
                             <div class="large-9 columns">
                                 <%= text_field_tag 'custom_field[choices][]', "", id: 'text-option-1' %>
                             </div>
-                            <div class="large-3 columns">
-                                <button type="button" class="button postfix" id="add-option">+</button>
+                            <div class="large-3 columns" id="option-button">
+                                <button type="button" class="button postfix add-option">+</button>
                             </div>
                         </div>
                     </div>
@@ -39,6 +39,7 @@
 
   <p/>
 
-  <%= f.submit 'Save',class: "button" %>
+  <%= f.submit 'Save',class: "button", id: "save-button" %>
+  <p>teste 1</p>
 <% end %>
 </div>
