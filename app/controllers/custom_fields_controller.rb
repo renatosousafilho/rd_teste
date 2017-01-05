@@ -11,7 +11,6 @@ class CustomFieldsController < ApplicationController
   end
 
   def create
-    p field_params
     @custom_field = CustomField.new(field_params)
     @custom_field.user = current_user
     if @custom_field.save
@@ -39,6 +38,7 @@ class CustomFieldsController < ApplicationController
     @custom_field = current_user.custom_fields.find(params[:id])
   end
 
+  # TODO: set in before action parse to string if choices was a array
   def field_params
     new_params = params.require(:custom_field).permit(:user_id, :kind, :name, :choices => [])
     new_params[:choices] = new_params[:choices].join(",")

@@ -21,6 +21,11 @@ $(document).ready(function(){
         selected = $(this).val();
         if (selected=="combobox") {
             $("#option-wrapper").show();
+            $("#text-option-1").removeAttr("disabled", "disabled");
+        } else {
+            $("#more-options-wrapper").html("");
+            $("#option-wrapper").hide();
+            $("#text-option-1").attr("disabled", "disabled");
         }
     });
 
@@ -31,7 +36,7 @@ $(document).ready(function(){
        field_id = 'option-' + ++i_id;
 
        new_input.attr("id", field_id);
-       $(".option-container").append(new_input);
+       $(".option-container #more-options-wrapper").append(new_input);
        $("#"+field_id).find('label').attr('for', 'text-'+field_id);
        $("#"+field_id).find('input').attr('id', 'text-'+field_id);
        $("#"+field_id).find('input').val("")

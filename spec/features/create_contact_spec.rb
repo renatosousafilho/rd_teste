@@ -5,7 +5,7 @@ describe 'Create a new contact' do
   before(:each) { create_logged_in_user }
 
   it 'should be ok when fill all form' do
-    visit new_contact_path
+    visit "/contacts/new"
     fill_in 'Name', with: "John Doe"
     fill_in 'Email', with: "johndoe@mail.com"
     click_button 'Save'
