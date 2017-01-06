@@ -22,7 +22,6 @@
 	</div>
   <%= f.simple_fields_for :contact_fields, @contact.contact_fields do |ff| %>
     <%= ff.input :custom_field_id, as: :hidden, input_html: { value: ff.object.custom_field.id} %>
-    <%= ff.input :contact_id, as: :hidden, input_html: { value: f.object.id} %>
 	<% if ff.object.custom_field.kind == "combobox" %>
 		<%= ff.input :value, as: :select, collection: ff.object.custom_field.choices.split(","), label: ff.object.custom_field.name %>
 	<% else %>

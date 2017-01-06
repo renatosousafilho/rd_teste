@@ -11,13 +11,10 @@ class ContactsController < ApplicationController
     @fields.each do |field|
       @contact.contact_fields.build custom_field: field
     end
-
-    p @contact.contact_fields
   end
 
   def create
     @contact = current_user.contacts.build(contact_params)
-    p @contact
     if @contact.save
       redirect_to contacts_path, notice: 'Contato cadastrado com sucesso'
     else
