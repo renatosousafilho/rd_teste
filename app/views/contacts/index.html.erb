@@ -6,18 +6,13 @@
   <tr>
     <th>Name</th>
     <th>Email</th>
-    <% @fields.each do |field|%>
-      <th><%= field.name %></th>
-    <% end %>
+	<th>Opções</th>
   </tr>
   <% @contacts.each do |contact| %>
     <tr>
       <td><%= contact.name %></td>
       <td><%= contact.email %></td>
-      <% contact.contact_fields.each do |field| %>
-        <td><%= field.value %></td>
-
-      <% end %>
+	  <td><%= link_to 'See contact', contact_path(contact) %></td>
     </tr>
   <% end %>
 </table>

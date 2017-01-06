@@ -3,7 +3,6 @@ class ContactsController < ApplicationController
 
   def index
     @contacts = current_user.contacts
-    @fields = current_user.custom_fields
   end
 
   def new
@@ -24,6 +23,10 @@ class ContactsController < ApplicationController
     else
       render :new
     end
+  end
+
+  def show
+    @contact = Contact.find(params[:id])
   end
 
 

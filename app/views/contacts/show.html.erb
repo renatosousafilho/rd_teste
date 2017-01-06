@@ -1,0 +1,17 @@
+<div class="row">
+	<h1>Contact #<%= @contact.id%></h1>
+
+	<label class="strong">Name</label>
+	<%= @contact.name %>
+	<label class="strong">email</label>
+	<%= @contact.email %>
+
+	<% @contact.contact_fields.each do |field| %>
+		<label class="strong"><%= field.custom_field.name %></label>
+		<%= field.value %>
+	<% end %>
+</div>
+
+<div class="row">
+	<%= link_to "back", contacts_path, class: 'button' %>
+</div>
