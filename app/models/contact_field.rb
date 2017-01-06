@@ -3,6 +3,6 @@ class ContactField < ActiveRecord::Base
   belongs_to :contact
 
   validates_presence_of :value, :custom_field
-  validates_presence_of :contact
+  validates_presence_of :contact_id
 
 end
