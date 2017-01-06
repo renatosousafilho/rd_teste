@@ -49,6 +49,7 @@ end
 gem 'devise'
 gem 'simple_form'
 gem 'foundation-rails'
+gem 'will_paginate'
 
 group :test do
   gem 'rspec-rails'

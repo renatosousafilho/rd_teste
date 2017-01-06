@@ -6,8 +6,9 @@
 			<tr>
 				<th>Name</th>
 				<th>Email</th>
-				<th>Opções</th>
+				<th>Options</th>
 			</tr>
+
 		</thead>
 		<tbody>
 			<% @contacts.each do |contact| %>
@@ -19,5 +20,14 @@
 			<% end %>
 		</tbody>
 	</table>
-	<%= link_to "New contact", new_contact_path, class: "button" %>
+
+	<div class="row">
+		<%= will_paginate @contacts, class: 'custom-pagination columns large-12', previous_label: "<< Anterior", next_label: "Próximo >>" %>
+	</div>
+
+	<div class="row">
+		<div class="columns large-12">
+			<%= link_to "New contact", new_contact_path, class: "button" %>
+		</div>
+	</div>
 </div>

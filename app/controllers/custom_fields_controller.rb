@@ -3,7 +3,7 @@ class CustomFieldsController < ApplicationController
   before_action :set_field, only: [:show, :edit, :update]
 
   def index
-    @custom_fields = current_user.custom_fields
+    @custom_fields = current_user.custom_fields.paginate(page: params[:page], per_page: 10)
   end
 
   def new

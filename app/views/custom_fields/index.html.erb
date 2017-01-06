@@ -22,5 +22,14 @@
     </tbody>
   </table>
 
-  <%= link_to "New field", new_custom_field_path, class: 'button' %>
+
+  <div class="row">
+	  <%= will_paginate @custom_fields, class: 'custom-pagination columns large-12', previous_label: "<< Anterior", next_label: "Próximo >>" %>
+  </div>
+
+  <div class="row">
+	  <div class="columns large-12">
+		  <%= link_to "New field", new_custom_field_path, class: 'button' %>
+	  </div>
+  </div>
 </div>
