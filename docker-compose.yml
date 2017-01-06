@@ -1,0 +1,14 @@
+db:
+  image: postgres
+
+web:
+  build: .
+  command: rails s -b 0.0.0.0
+  ports:
+    - 3000:3000
+  links:
+    - db
+  volumes:
+    - '.:/var/app'
+    - .bundle:/usr/share/bundle
+
