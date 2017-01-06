@@ -23,7 +23,11 @@ class ContactsController < ApplicationController
   end
 
   def show
-    @contact = Contact.find(params[:id])
+    begin
+      @contact = current_user.contacts.find(params[:id])
+    rescue
+      redirect_to root_path, notice: "Você não tem acesso a este contato"
+    end
   end
 
 
