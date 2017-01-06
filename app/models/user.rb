@@ -6,5 +6,5 @@ class User < ActiveRecord::Base
 
 
   has_many :contacts
-  has_many :custom_fields
+  has_many :custom_fields, inverse_of: :user
 end

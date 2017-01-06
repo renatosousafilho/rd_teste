@@ -6,12 +6,11 @@ class CustomFieldsController < ApplicationController
   end
 
   def new
-    @custom_field = CustomField.new(user: current_user)
+    @custom_field = current_user.custom_fields.build
   end
 
   def create
-    @custom_field = CustomField.new(field_params)
-    @custom_field.user = current_user
+    @custom_field = current_user.custom_fields.build(field_params)
     if @custom_field.save
       redirect_to custom_fields_path, notice: "Campo cadastrado com sucesso"
     else
@@ -19,7 +18,6 @@ class CustomFieldsController < ApplicationController
       render :new
     end
   end
-
   private
 
   # TODO: set in before action parse to string if choices was a array
