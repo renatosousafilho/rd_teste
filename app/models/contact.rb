@@ -3,7 +3,7 @@ class Contact < ActiveRecord::Base
 
   validates_presence_of :email, :user
 
-  has_many :contact_fields, dependent: :destroy
+  has_many :contact_fields, dependent: :destroy, inverse_of: :contact
 
   accepts_nested_attributes_for :contact_fields
 end
