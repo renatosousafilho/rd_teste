@@ -41,7 +41,7 @@ class CustomFieldsController < ApplicationController
   # TODO: set in before action parse to string if choices was a array
   def field_params
     new_params = params.require(:custom_field).permit(:user_id, :kind, :name, :choices => [])
-    new_params[:choices] = new_params[:choices].join(",")
+    new_params[:choices] = new_params[:choices].join(",") if new_params[:choices].present?
     new_params
   end
 end
