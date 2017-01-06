@@ -28,8 +28,6 @@ describe 'Create a new custom field' do
 
     select "combobox", from: 'Kind'
 
-    expect(page).to have_content('new option')
-
     expect(page).to have_css('.option-field', :count=>1)
 
     5.times { click_button '+' }
