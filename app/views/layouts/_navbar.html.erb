@@ -1,0 +1,18 @@
+<nav class="top-bar">
+    <div class="top-bar-title">
+	
+    <strong>Custom Forms</strong>
+    </div>
+    <div class="top-bar-right">
+    <ul class="dropdown menu" data-dropdown-menu>
+        </li>
+        <li><%= link_to 'Fields', custom_fields_path %></li>
+        <li><%= link_to 'Contact', contacts_path %></li>
+        <li>
+        <a href="#"><%= current_user.email %></a>
+        <ul class="menu vertical">
+            <li><%= link_to('Logout', destroy_user_session_path, :method => :delete) %></li>
+        </ul>
+    </ul>
+    </div>
+</nav>
