@@ -58,6 +58,21 @@ RSpec.configure do |config|
   config.include Capybara::DSL
   config.include Warden::Test::Helpers
   config.include RequestHelpers, type: :feature
+  Capybara.javascript_driver = :webkit
+
+  config.use_transactional_fixtures = false
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before(:each) do
+    DatabaseCleaner.start
+  end
+
+  config.after(:each) do
+    DatabaseCleaner.clean
+  end
 end
 
 Shoulda::Matchers.configure do |config|

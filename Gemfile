@@ -49,11 +49,11 @@ gem 'devise'
 gem 'simple_form'
 gem 'foundation-rails'
 
-
 group :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'shoulda-matchers', '~> 3.1'
   gem "factory_girl_rails", "~> 4.0"
   gem "database_cleaner"
+  gem 'capybara-webkit'
 end

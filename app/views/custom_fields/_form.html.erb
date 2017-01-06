@@ -1,45 +1,43 @@
 <div class="large-12 columns">
-<%= simple_form_for @custom_field do |f| %>
+  <%= flash[:notice] %>
+  <%= simple_form_for @custom_field do |f| %>
     <div class="row">
-        <div class="small-12 columns">
-            <%= f.input :name, input_html: { class: "large-12 columns" } %>
-        </div>
+      <div class="small-12 columns">
+        <%= f.input :name, input_html: { class: "large-12 columns" } %>
+      </div>
     </div>
     <div class="row">
-        <div class="small-12 columns">
-            <%= f.input :kind, as: :select, collection: CustomField.kinds.keys, prompt: "Selecione um tipo", input_html: { id: "kind-combobox", class: "large-12 columns" }  %>
-        </div>
+      <div class="small-12 columns">
+        <%= f.input :kind, as: :select, collection: CustomField.kinds.keys, prompt: "Selecione um tipo", input_html: { id: "kind-combobox", class: "large-12 columns" }  %>
+      </div>
     </div>
 
     <div class="row" id="option-wrapper" style="display: none">
-        <div class="small-8 columns">
-
-            <fieldset class="option-container">
-                <div class="row">
-                    <legend class="small-12 columns">Options</legend>
+      <div class="small-12 columns">
+        <fieldset class="option-container">
+          <div class="row">
+            <legend class="small-12 columns">Options(click in button '+' to add more options and click '-' to remove)</legend>
+          </div>
+          <div class="row option-field" id="option-1">
+            <div class="large-8 columns">
+              new option
+              <div class="row collapse">
+                <div class="large-9 columns">
+                  <%= text_field_tag 'custom_field[choices][]', "", id: 'text-option-1', placeholder: "Type the new option..." %>
                 </div>
-                <div class="row" id="option-1">
-                    <div class="large-12 columns">
-                        <div class="row collapse">
-                            <div class="large-9 columns">
-                                <%= text_field_tag 'custom_field[choices][]', "", id: 'text-option-1', placeholder: "Adicione uma nova opção" %>
-                            </div>
-                            <div class="large-3 columns" id="option-button">
-                                <button type="button" class="button postfix add-option">+</button>
-                            </div>
-                        </div>
-                    </div>
+                <div class="large-3 columns" id="option-button">
+                  <button type="button" class="button postfix add-option">+</button>
                 </div>
-                <div id="more-options-wrapper">
-                </div>
-            </fieldset>
-        </div>
-
+              </div>
+            </div>
+          </div>
+          <div id="more-options-wrapper">
+          </div>
+        </fieldset>
+      </div>
     </div>
 
-  <p/>
 
-  <%= f.submit 'Save',class: "button", id: "save-button" %>
-  <p>teste 1</p>
-<% end %>
+    <%= f.submit 'Save',class: "button", id: "save-button" %>
+  <% end %>
 </div>

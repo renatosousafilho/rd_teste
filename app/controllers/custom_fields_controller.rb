@@ -14,9 +14,9 @@ class CustomFieldsController < ApplicationController
     @custom_field = CustomField.new(field_params)
     @custom_field.user = current_user
     if @custom_field.save
-      flash[:notice] = "Campo cadastrado com sucesso"
-      redirect_to custom_fields_path
+      redirect_to custom_fields_path, notice: "Campo cadastrado com sucesso"
     else
+      flash[:notice] = "There's something wrong!"
       render :new
     end
   end

@@ -30,26 +30,26 @@ $(document).ready(function(){
     });
 
 
-    var i_id = 1;
+    var next = 1;
     $(document).on('click', '.add-option', function(){
-       last_field_id = 'option-' + i_id;
-       last_field = "#"+last_field_id;
+       var last_id = next;
+       var last_field_id = 'option-' + last_id;
+       var last_field = "#"+last_field_id;
        var new_input = $(last_field).clone();
-       last = i_id;
 
-       field_id = 'option-' + ++i_id;
-       field = "#"+field_id;
+       var field_id = 'option-' + ++next;
+       var field = "#"+field_id;
 
        new_input.attr("id", field_id);
-       removeButton = "<button type=\"button\" class=\"remove-button button alert postfix\" id=\"remove-option-"+last+"\">-</button>"
+       removeButton = "<button type=\"button\" class=\"remove-button button alert postfix\" id=\"remove-option-"+last_id+"\">-</button>"
 
        $(last_field).find("#option-button").html(removeButton);
 
        $(".option-container #more-options-wrapper").append(new_input);
-       $("#"+field_id).find('label').attr('for', 'text-'+field_id);
-       $("#"+field_id).find('input').attr('id', 'text-'+field_id);
-       $("#"+field_id).find('input').val("");
-       $("#"+field_id).find('label').text("Opção"+i_id);
+       $(field).find('label').attr('for', 'text-'+field_id);
+       $(field).find('input').attr('id', 'text-'+field_id);
+       $(field).find('input').val("");
+       $(field).find('label').text("Opção"+i_id);
     });
 
     $(document).on('click', '.remove-button', function(){
