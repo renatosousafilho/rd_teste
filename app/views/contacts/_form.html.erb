@@ -1,8 +1,25 @@
 <%= simple_form_for @contact do |f| %>
+	<% if @contact.errors.present? %>
+		<div class="alert callout" data-closable>
 
-  <%= f.input :name %>
-  <%= f.input :email %>
+			<p><%= @contact.errors.full_messages %></p>
+			<button class="close-button" aria-label="Dismiss alert" type="button" data-close>
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
 
+	<% end %>
+
+	<div class="row">
+		<div class="large-8 columns">
+			<%= f.input :name %>
+		</div>
+	</div>
+	<div class="row">
+		<div class="large-8 columns">
+			<%= f.input :email %>
+		</div>
+	</div>
   <%= f.simple_fields_for :contact_fields, @contact.contact_fields do |ff| %>
     <%= ff.input :custom_field_id, as: :hidden, input_html: { value: ff.object.custom_field.id} %>
     <%= ff.input :contact_id, as: :hidden, input_html: { value: f.object.id} %>
@@ -14,5 +31,5 @@
   <% end %>
 
 
-  <%= f.submit "Save" %>
+  <%= f.submit "Save", class: "button" %>
 <% end %>

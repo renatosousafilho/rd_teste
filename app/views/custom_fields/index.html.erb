@@ -1,21 +1,26 @@
-<h3>Campos</h3>
+<div class="columms large-6 large-offset-3">
+  <h3>Fields</h3>
 
-<p><%= flash[:notice] %></p>
+  <p><%= flash[:notice] %></p>
 
-<table class="table">
-  <tr>
-    <th>Campo</th>
-    <th>Tipo</th>
-    <th>Opções</th>
-  </tr>
-  <% @custom_fields.each do |field| %>
-    <tr>
-      <td><%= field.name %></td>
-      <td><%= field.kind %></td>
-      <td><%= field.choices %></td>
-	  <td><%= link_to "Edit", edit_custom_field_path(field.id) %></td>
-    </tr>
-  <% end %>
-</table>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Kind</th>
+        <th>Choices</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @custom_fields.each do |field| %>
+      <tr>
+        <td><%= field.name %></td>
+        <td><%= field.kind %></td>
+        <td><%= field.choices %></td>
+      </tr>
+    <% end %>
+    </tbody>
+  </table>
 
-<%= link_to "New field", new_custom_field_path, class: 'button' %>
+  <%= link_to "New field", new_custom_field_path, class: 'button' %>
+</div>
